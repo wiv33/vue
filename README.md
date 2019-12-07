@@ -15,6 +15,8 @@ BASEBALL
 
 > npm i vue-loader -D
 
+> npm i vue-template-compiler -D
+
 ### create webpack.config.js and edit
 
 ```
