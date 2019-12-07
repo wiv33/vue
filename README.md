@@ -13,6 +13,7 @@ BASEBALL
 
 > npm i webpack webpack-cli -D
 
+> npm i vue-loader -D
 
 ### create webpack.config.js and edit
 
