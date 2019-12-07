@@ -36,6 +36,7 @@
         },
         methods: {
             onSubmitForm(e) {
+                let flag = false;
                 if (this.value === '') {
                     return;
                 }
@@ -45,15 +46,11 @@
                         result: '홈런'
                     });
                     this.result = '홈런';
-                    alert("게임을 다시 실행합니다.");
-                    this.answer = getNumbers();
-                    this.tries = [];
+                    flag = true;
                 } else {
                     if (this.tries.length >= 9) {
                         this.result = `10번 넘게 틀려서 실패! 답은 ${this.answer.join('')}이었습니다!`;
-                        alert("게임을 다시 시작합니다.");
-                        this.answer = getNumbers();
-                        this.tries = [];
+                        flag = true;
                     }
                     let strike = 0;
                     let ball = 0;
@@ -70,7 +67,14 @@
                         result: `${strike} 스트라이크, ${ball} 볼입니다.`
                     });
                 }
-
+                if (flag) {
+                    setTimeout(() => {
+                        alert("게임을 다시 시작합니다.");
+                        this.answer = getNumbers();
+                        this.tries = [];
+                        this.result = '';
+                    }, 500)
+                }
                 this.$refs.answer.focus();
                 this.value = '';
             }
