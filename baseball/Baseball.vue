@@ -16,20 +16,61 @@
 </template>
 
 <script>
+    const getNumbers = () => {
+        const candidates = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        const arr = [];
+        for (let i = 0; i < 4; i++) {
+            const chosen = candidates.splice(Math.floor(Math.random() * (9 - i)), 1)[0];
+            arr.push(chosen);
+        }
+        return arr;
+    };
     export default {
         data() {
             return {
-                tries: [],
-                value: '',
-                result: ''
+                answer: getNumbers(), // ex) [1,2,3,4]
+                tries: [], // 시도 수
+                value: '', // 입력
+                result: '' // 결과
             }
         },
         methods: {
             onSubmitForm(e) {
-                this.tries.push({
-                    try: this.value,
-                    result: '홈런'
-                });
+                if (this.value === '') {
+                    return;
+                }
+                if (this.value === this.answer.join('')) {
+                    this.tries.push({
+                        try: this.value,
+                        result: '홈런'
+                    });
+                    this.result = '홈런';
+                    alert("게임을 다시 실행합니다.");
+                    this.answer = getNumbers();
+                    this.tries = [];
+                } else {
+                    if (this.tries.length >= 9) {
+                        this.result = `10번 넘게 틀려서 실패! 답은 ${this.answer.join('')}이었습니다!`;
+                        alert("게임을 다시 시작합니다.");
+                        this.answer = getNumbers();
+                        this.tries = [];
+                    }
+                    let strike = 0;
+                    let ball = 0;
+                    const answerArr = this.value.split('').map(v => parseInt(v));
+                    for (let i = 0; i < 4; i++) {
+                        if (answerArr[i] === this.answer[i]) {
+                            strike++;
+                        } else if (this.answer.includes(answerArr[i])) {
+                            ball++;
+                        }
+                    }
+                    this.tries.push({
+                        try: this.value,
+                        result: `${strike} 스트라이크, ${ball} 볼입니다.`
+                    });
+                }
+
                 this.$refs.answer.focus();
                 this.value = '';
             }
