@@ -108,3 +108,8 @@ new Vue(RockScissorsPaper).$mount('#root');
 
 </style>
 ```
+
+
+### Vue LifeCycle
+
+![Life Cycle](./images/lifecycle.dcbe29f6)
