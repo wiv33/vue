@@ -27,6 +27,8 @@ module.exports = {
     ],
     output: {
         filename: '[name].js',
-        path: path.join(__dirname, 'dist') //distribution
+        path: path.join(__dirname, 'dist'), //distribution
+        //add webpack-dev-server
+        publicPath: '/dist'
     }
 };
