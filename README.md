@@ -1,4 +1,4 @@
-BASEBALL
+#RockScissorsPaper
 
 ## INITIALIZR Project
 
