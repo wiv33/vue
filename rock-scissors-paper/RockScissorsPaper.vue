@@ -17,6 +17,14 @@
         가위: '-142px',
         보: '-284px'
     };
+    const scores = {
+        가위: 1,
+        바위: 0,
+        보: -1
+    };
+
+    const computerChoice = imgCoord => Object.entries(rspCoords).find(v => v[1] === imgCoord)[0];
+
     let interval = null;
     export default {
         name: "RockScissorPaper",
@@ -37,8 +45,41 @@
         },
         methods: {
             onClickButton(choice) {
-
-            }
+                clearInterval(interval);
+                const myScore = scores[choice];
+                const cpuScore = scores[computerChoice(this.imgCoord)];
+                const diff = myScore - cpuScore;
+                if (diff === 0) {
+                    this.result = '비겼습니다.';
+                } else if ([-1, 2].includes(diff)) {
+                    this.result = '승리';
+                    this.score++;
+                } else {
+                    this.result = "졌습니다.";
+                    this.score--;
+                }
+                interval = null;
+                setTimeout(() => {
+                    this.changeHand()
+                }, 1000);
+            },
+            changeHand() {
+                if (!interval) {
+                    interval = setInterval(() => {
+                        switch (this.imgCoord) {
+                            case rspCoords.바위:
+                                this.imgCoord = rspCoords.가위;
+                                break;
+                            case rspCoords.가위:
+                                this.imgCoord = rspCoords.보;
+                                break;
+                            case rspCoords.보:
+                                this.imgCoord = rspCoords.바위;
+                                break;
+                        }
+                    }, 100);
+                }
+            },
         },
         beforeCreated() {
             console.log("beforeCreated");
@@ -50,20 +91,7 @@
             console.log("beforeMounted");
         },
         mounted() {
-            setInterval(() => {
-                switch (this.imgCoord) {
-                    case rspCoords.바위:
-                        this.imgCoord = rspCoords.가위;
-                        break;
-                    case rspCoords.가위:
-                        this.imgCoord = rspCoords.보;
-                        break;
-                    case rspCoords.보:
-                        this.imgCoord = rspCoords.바위;
-                        break;
-
-                }
-            }, 100);
+            this.changeHand();
             console.log("mounted");
         },
         beforeUpdated() {
