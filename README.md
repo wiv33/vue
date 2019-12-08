@@ -15,6 +15,12 @@ this repository is study note of vue.js and that note has page list of studied v
 
 ## Chap.3 :
 
-### RockScissorPaper
+### RockScissorsPaper
 
-* [***Source Code***](https://github.com/wiv33/vue/tree/rock-scissor-paper)
+* [***Source Code***](https://github.com/wiv33/vue/tree/rock-scissors-paper)
+
+## Chap.4 :
+
+### LottoGenerator
+
+* [***Source Code***](https://github.com/wiv33/vue/tree/lotto-generator)
