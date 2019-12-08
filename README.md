@@ -12,3 +12,7 @@ this repository is study note of vue.js and that note has page list of studied v
 ### Response-check
 
 * [***Source Code***](https://github.com/wiv33/vue/tree/response-check)
+
+### RockScissorsPaper
+
+* [***Source Code***](https://github.com/wiv33/vue/tree/rock-scissors-paper)
