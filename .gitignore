@@ -1,2 +1,4 @@
 .idea
 wordRelay
+node_modules
+dist

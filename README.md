@@ -3,19 +3,15 @@ BASEBALL
 ## INITIALIZR Project
 
 ### create directory (command prompt)
-> mkdir vue/baseball
+> mkdir vue/response-check
 
-> cd vue/baseball
+> cd vue/response-check
 
-> npm init
+> git clone https://github.com/wiv33/vue.git
 
-> npm i vue
+> git checkout response-check
 
-> npm i webpack webpack-cli -D
-
-> npm i vue-loader -D
-
-> npm i vue-template-compiler -D
+> npm i
 
 ### create webpack.config.js and edit
 
@@ -34,10 +30,12 @@ module.exports = {
 ```
 import Vue from 'vue';
 
+import ResponseCheck from './responseCheck';
+
 new Vue().$mount('#root');
 ```
 
-### create Baseball.html
+### create ResponseCheck.html
 
 ```
 <!doctype html>
@@ -56,7 +54,7 @@ new Vue().$mount('#root');
 </html>
 ```
 
-### create Baseball.vue
+### create ResponseCheck.vue
 
 ```
 <template>
