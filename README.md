@@ -1,15 +1,20 @@
-BASEBALL
+Lotto Generator
+
+# Studying in focus
+* ###watch
+* ###template
+* ###v-for :key
 
 ## INITIALIZR Project
 
 ### create directory (command prompt)
-> mkdir vue/rock-scissors-paper
+> mkdir vue/lotto-generator
 
-> cd vue/rock-scissors-paper
+> cd vue/lotto-generator
 
 > git clone https://github.com/wiv33/vue.git
 
-> git checkout rock-scissors-paper
+> git checkout lotto-generator
 
 > npm i
 
@@ -58,12 +63,12 @@ module.exports = {
 ```
 import Vue from 'vue';
 
-import RockScissorsPaper from "./RockScissorsPaper";
+import LottoGenerator from "./LottoGenerator";
 
-new Vue(RockScissorsPaper).$mount('#root');
+new Vue(LottoGenerator).$mount('#root');
 ```
 
-### init RockScissorsPaper.html
+### init LottoGenerator.html
 
 ```
 <!doctype html>
@@ -82,7 +87,47 @@ new Vue(RockScissorsPaper).$mount('#root');
 </html>
 ```
 
-### init RockScissorsPaper.vue
+### init LottoGenerator.vue
+
+```
+<template>
+    <div>
+
+    </div>
+</template>
+
+<script>
+    export default {
+        name: "LottoGenerator",
+        data() {
+            return {
+                
+            }
+        },
+        computed: {
+            
+        },
+        methods: {
+            
+        },
+        beforeMounted() {
+            
+        },
+        mounted() {
+            
+        },
+        beforeDestroyed() {
+            
+        }
+    };
+</script>
+
+<style scoped>
+    
+</style>
+```
+
+### init LottoBall.vue
 
 ```
 <template>
@@ -91,25 +136,11 @@ new Vue(RockScissorsPaper).$mount('#root');
 
 <script>
     export default {
-        name: "RockScissorPaper",
-        data() {
-
-        },
-        computed: {
-
-        },
-        methods: {
-
-        },
-    };
+        name: "LottoBall"
+    }
 </script>
 
 <style scoped>
 
 </style>
 ```
-
-
-### Vue LifeCycle
-
-![Life Cycle](./rock-scissors-paper/images/lifecycle.dcbe29f6.png)
