@@ -51,7 +51,7 @@ new Vue().$mount('#root');
 </head>
 <body>
 <div id="root"></div>
-<script src="/dist/app.js"></script>
+<script src="./dist/app.js"></script>
 </body>
 </html>
 ```
