@@ -4,6 +4,7 @@ Lotto Generator
 * ###watch
 * ###template
 * ###v-for :key
+* ###props
 
 ## INITIALIZR Project
 
