@@ -112,4 +112,4 @@ new Vue(RockScissorsPaper).$mount('#root');
 
 ### Vue LifeCycle
 
-![Life Cycle](./rock-scissors-paper/images/lifecycle.dcbe29f6)
+![Life Cycle](./rock-scissors-paper/images/lifecycle.dcbe29f6.png)
