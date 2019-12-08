@@ -16,12 +16,32 @@ BASEBALL
 ### create webpack.config.js and edit
 
 ```
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const path = require('path');
+
 module.exports = {
-  entry: {},
-  module: {},
-  plugins: [],
-  output: {}
-}
+    mode: 'development', //production
+    devtool: 'eval', //hidden-sourceMap
+    resolve: {
+        extensions: ['.js', '.vue']
+    },
+    entry: {
+        app: path.join(__dirname, 'main.js')
+    },
+    module: {
+        rules: [{
+            test: /\.vue$/,
+            use: 'vue-loader'
+        }]
+    },
+    plugins: [
+        new VueLoaderPlugin()
+    ],
+    output: {
+        filename: '[name].js',
+        path: path.join(__dirname, 'dist') //distribution
+    }
+};
 ```
 
 
@@ -38,7 +58,6 @@ new Vue().$mount('#root');
 ### create ResponseCheck.html
 
 ```
-<!doctype html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -49,7 +68,7 @@ new Vue().$mount('#root');
 </head>
 <body>
 <div id="root"></div>
-<script src="/dist/app.js"></script>
+<script src="./dist/app.js"></script>
 </body>
 </html>
 ```
@@ -65,7 +84,7 @@ new Vue().$mount('#root');
 
 <script>
     export default {
-        
+
     }
 </script>
 
