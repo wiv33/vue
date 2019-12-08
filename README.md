@@ -19,6 +19,8 @@ Lotto Generator
 
 > npm i
 
+> npm run dev
+
 ### init webpack.config.js
 
 ```
