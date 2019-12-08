@@ -1,18 +1,110 @@
-# Vue
-this repository is study note of vue.js and that note has page list of studied vue.js
+BASEBALL
 
-## Chap.1 : 
+## INITIALIZR Project
 
-### Baseball
+### create directory (command prompt)
+> mkdir vue/rock-scissors-paper
 
-* [***Source Code***](https://github.com/wiv33/vue/tree/baseball)
+> cd vue/rock-scissors-paper
 
-## Chap.2 :
+> git clone https://github.com/wiv33/vue.git
 
-### Response-check
+> git checkout rock-scissors-paper
 
-* [***Source Code***](https://github.com/wiv33/vue/tree/response-check)
+> npm i
 
-### RockScissorPaper
+### init webpack.config.js
 
-* [***Source Code***](https://github.com/wiv33/vue/tree/rock-scissor-paper)
+```
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const path = require('path');
+
+module.exports = {
+    mode: 'development', //production
+    devtool: 'eval', //hidden-sourceMap
+    resolve: {
+        extensions: ['.js', '.vue']
+    },
+    entry: {
+        app: path.join(__dirname, 'main.js')
+    },
+    module: {
+        rules: [{
+            test: /\.vue$/,
+            use: 'vue-loader'
+        }, {
+            test: /\.css$/,
+            use: [
+                'vue-style-loader',
+                'css-loader'
+            ]
+        }]
+    },
+    plugins: [
+        new VueLoaderPlugin()
+    ],
+    output: {
+        filename: '[name].js',
+        path: path.join(__dirname, 'dist'), //distribution
+        //add webpack-dev-server
+        publicPath: '/dist'
+    }
+};
+```
+
+
+### init main.js
+
+```
+import Vue from 'vue';
+
+import RockScissorsPaper from "./RockScissorsPaper";
+
+new Vue(RockScissorsPaper).$mount('#root');
+```
+
+### init RockScissorsPaper.html
+
+```
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Scissor Paper</title>
+</head>
+<body>
+<div id="root"></div>
+<script src="./dist/app.js"></script>
+</body>
+</html>
+```
+
+### init RockScissorsPaper.vue
+
+```
+<template>
+    
+</template>
+
+<script>
+    export default {
+        name: "RockScissorPaper",
+        data() {
+
+        },
+        computed: {
+
+        },
+        methods: {
+
+        },
+    };
+</script>
+
+<style scoped>
+
+</style>
+```
