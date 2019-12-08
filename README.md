@@ -1,10 +1,10 @@
 Lotto Generator
 
-# Studying in focus
-* ###watch
-* ###template
-* ###v-for :key
-* ###props
+## Studying in focus
+* watch
+* template
+* v-for :key
+* props
 
 ## INITIALIZR Project
 
