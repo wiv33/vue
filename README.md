@@ -1,4 +1,4 @@
-Lotto Generator
+TicTacToe
 
 ## Studying in focus
 * watch
@@ -9,13 +9,13 @@ Lotto Generator
 ## INITIALIZR Project
 
 ### create directory (command prompt)
-> mkdir vue/lotto-generator
+> mkdir vue/tic-tac-toe
 
-> cd vue/lotto-generator
+> cd vue/tic-tac-toe
 
 > git clone https://github.com/wiv33/vue.git
 
-> git checkout lotto-generator
+> git checkout tic-tac-toe
 
 > npm i
 
@@ -66,12 +66,12 @@ module.exports = {
 ```
 import Vue from 'vue';
 
-import LottoGenerator from "./LottoGenerator";
+import LottoGenerator from "./TicTacToe";
 
-new Vue(LottoGenerator).$mount('#root');
+new Vue(TicTacToe).$mount('#root');
 ```
 
-### init LottoGenerator.html
+### init TicTacToe.html
 
 ```
 <!doctype html>
@@ -81,7 +81,7 @@ new Vue(LottoGenerator).$mount('#root');
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rock Scissor Paper</title>
+    <title>Tic Tac Toe</title>
 </head>
 <body>
 <div id="root"></div>
@@ -90,7 +90,7 @@ new Vue(LottoGenerator).$mount('#root');
 </html>
 ```
 
-### init LottoGenerator.vue
+### init TicTacToe.vue
 
 ```
 <template>
@@ -101,32 +101,23 @@ new Vue(LottoGenerator).$mount('#root');
 
 <script>
     export default {
-        name: "LottoGenerator",
+        name: "TicTacToe",
         data() {
             return {
-                
+
             }
         },
-        computed: {
-            
-        },
         methods: {
-            
+
         },
-        beforeMounted() {
-            
-        },
-        mounted() {
-            
-        },
-        beforeDestroyed() {
-            
+        components: {
+
         }
-    };
+    }
 </script>
 
 <style scoped>
-    
+
 </style>
 ```
 
