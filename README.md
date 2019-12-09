@@ -1,10 +1,11 @@
 TicTacToe
 
 ## Studying in focus
-* watch
-* template
+* template, component
 * v-for :key
-* props
+* this.$set
+* this.$root
+* this.$parent / this.$parent.$parent
 
 ## INITIALIZR Project
 
@@ -66,7 +67,7 @@ module.exports = {
 ```
 import Vue from 'vue';
 
-import LottoGenerator from "./TicTacToe";
+import TicTacToe from "./TicTacToe";
 
 new Vue(TicTacToe).$mount('#root');
 ```

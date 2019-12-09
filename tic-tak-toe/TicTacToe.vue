@@ -1,5 +1,9 @@
 <template>
-    <table-component :table-data="tableData"></table-component>
+    <div>
+        <div>{{turn}} 님의 턴입니다.</div>
+        <table-component :table-data="tableData"></table-component>
+        <div v-if="winner">{{winner}} 님의 승리</div>
+    </div>
 </template>
 
 <script>
@@ -17,16 +21,20 @@
                     ['', '', ''],
                 ],
                 turn: 'O',
+                winner: '',
             }
         },
         methods: {
-
+            onChangeData() {
+                // this.tableData[1][0] = 'X'; 작동하지 않음
+                this.$set(this.tableData[1], 0, 'X'); // Vue.set 동일
+            }
         },
 
     }
 </script>
 
-<style scoped>
+<style>
     table {
         border-collapse: collapse;
     }
