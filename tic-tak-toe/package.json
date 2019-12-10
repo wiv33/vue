@@ -1,5 +1,5 @@
 {
-  "name": "tic-tac-toe",
+  "name": "tic-tac-toe-event-bus",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
