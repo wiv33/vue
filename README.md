@@ -10,13 +10,13 @@ TicTacToe
 ## INITIALIZR Project
 
 ### create directory (command prompt)
-> mkdir vue/tic-tac-toe
+> mkdir vue/tic-tac-toe-event-bus
 
-> cd vue/tic-tac-toe
+> cd vue/tic-tac-toe-event-bus
 
 > git clone https://github.com/wiv33/vue.git
 
-> git checkout tic-tac-toe
+> git checkout tic-tac-toe-event-bus
 
 > npm i
 
@@ -122,20 +122,85 @@ new Vue(TicTacToe).$mount('#root');
 </style>
 ```
 
-### init LottoBall.vue
+### init TableComponent.vue
 
 ```
 <template>
-    
+    <table>
+        <tr-component></tr-component>
+    </table>
 </template>
 
 <script>
+    import TrComponent from './TrComponent';
+
     export default {
-        name: "LottoBall"
+        name: "TableComponent",
+        props: {
+        },
+        components: {
+        }
     }
 </script>
 
 <style scoped>
 
 </style>
+```
+
+### init TrComponent.vue
+
+```
+<template>
+    <tr>
+        <td-component></td-component>
+    </tr>
+</template>
+
+<script>
+    import TdComponent from "./TdComponent";
+
+    export default {
+        name: "TrComponent",
+        props: {
+        },
+        components: {TdComponent}
+    }
+</script>
+
+<style scoped>
+
+</style>
+```
+
+### init TdComponent.vue
+
+```
+<template>
+    <td></td>
+</template>
+
+<script>
+    export default {
+        name: "TdComponent",
+        props: {
+        },
+        methods: {
+            onClickTd() {
+            }
+        }
+    }
+</script>
+
+<style scoped>
+
+</style>
+```
+
+### init EventBus.js
+
+```
+import Vue from 'vue';
+
+export default new Vue();
 ```
