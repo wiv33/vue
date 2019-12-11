@@ -4,16 +4,31 @@
 
 <script>
     import {CLICK_CELL, SET_WINNER, RESET_GAME, CHANGE_TURN, NO_WINNER} from "./store";
+    import { mapState } from 'vuex';
 
     export default {
         name: "TdComponent",
-        created() {
-            console.log(this.cellData);
-        },
         props: {
-            cellData: String,
             cellIndex: Number,
             rowIndex: Number
+        },
+        computed: {
+            ...mapState({
+                tableData: state => state.tableData,
+                cellData(state) {
+                    return state.tableData[this.rowIndex][this.cellIndex];
+                },
+                turn: state => state.turn
+            }),
+            /*cellData() {
+                return this.$store.state.tableData[this.rowIndex][this.cellIndex];
+            },
+            tableData() {
+                return this.$store.state.tableData;
+            },
+            turn() {
+                return this.$store.state.turn;
+            }*/
         },
         methods: {
             onClickTd() {

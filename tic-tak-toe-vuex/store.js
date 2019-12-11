@@ -1,6 +1,8 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
 
+Vue.use(Vuex);
+
 export const SET_WINNER = 'SET_WINNER'; // import { SET_WINNER, CLICK_CELL, CHANGE_TURN } from './store';
 export const CLICK_CELL = 'CLICK_CELL';
 export const CHANGE_TURN = 'CHANGE_TURN';
@@ -23,7 +25,9 @@ export default new Vuex.Store({ // import store from './store';
     // vue의 computed와 비슷
     // state를 변경할 때 mutations을 통해서 변경하는 것을 권장한다.
     getters: {
-
+        turnMessage(state) {
+            return state.turn + " 님이 승리하셨습니다.";
+        }
     },
     // state를 수정할 때 동기적으로 사용.
     // mutation naming 은 대문자로 짓는 것이 뷰 커뮤니티에서 규칙이다.
