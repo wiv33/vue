@@ -15,17 +15,16 @@
             TableComponent
         },
         data() {
-            return {}
+            return {
+                tableData: [
+                    ['', '', ''],
+                    ['', '', ''],
+                    ['', '', ''],
+                ],
+                turn: 'O',
+                winner: '',
+            }
         },
-        methods: {
-            onChangeData() {
-                // this.tableData[1][0] = 'X'; 작동하지 않음
-                this.$set(this.tableData[1], 0, 'X'); // Vue.set 동일
-            },
-        },
-        created() {
-            EventBus.$on('clickTd', this.onClickTd);
-        }
     }
 </script>
 

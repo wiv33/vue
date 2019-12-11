@@ -1,13 +1,15 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
 
-export const SET_WINNER = 'SET_WINNER';
+export const SET_WINNER = 'SET_WINNER'; // import { SET_WINNER, CLICK_CELL, CHANGE_TURN } from './store';
 export const CLICK_CELL = 'CLICK_CELL';
 export const CHANGE_TURN = 'CHANGE_TURN';
 export const RESET_GAME = 'RESET_GAME';
 export const NO_WINNER = 'NO_WINNER';
 
-export default new Vuex.Store({
+//가장 중요한 한 객체만 export default 를 사용한다.
+// import 할 때 이름을 마음대로 정할 수 있다.
+export default new Vuex.Store({ // import store from './store';
     // vue의 data와 비슷
     state: {
         tableData: [
