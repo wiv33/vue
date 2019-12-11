@@ -1,24 +1,22 @@
-TicTacToe
+TicTacToeVueX
 
 ## Studying in focus
-* template, component
-* v-for :key
-* this.$set
-* this.$root
-* this.$parent / this.$parent.$parent
+* Vuex
 
 ## INITIALIZR Project
 
 ### create directory (command prompt)
-> mkdir vue/tic-tac-toe-event-bus
+> mkdir vue/tic-tac-toe-vuex
 
-> cd vue/tic-tac-toe-event-bus
+> cd vue/tic-tac-toe-vuex
 
 > git clone https://github.com/wiv33/vue.git
 
-> git checkout tic-tac-toe-event-bus
+> git checkout tic-tac-toe-vuex
 
 > npm i
+
+> npm i vuex
 
 > npm run dev
 
@@ -70,6 +68,24 @@ import Vue from 'vue';
 import TicTacToe from "./TicTacToe";
 
 new Vue(TicTacToe).$mount('#root');
+```
+
+### init store.js
+
+```
+import Vuex from 'vuex';
+
+export default new Vuex.Store({
+    state: {
+        
+    },
+    mutations: {
+        
+    },
+    actions: {
+        
+    }
+});
 ```
 
 ### init TicTacToe.html
@@ -195,12 +211,4 @@ new Vue(TicTacToe).$mount('#root');
 <style scoped>
 
 </style>
-```
-
-### init EventBus.js
-
-```
-import Vue from 'vue';
-
-export default new Vue();
 ```

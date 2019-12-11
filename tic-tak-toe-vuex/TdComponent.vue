@@ -1,37 +1,23 @@
 <template>
-    <div>
-        <div>{{turn}} 님의 턴입니다.</div>
-        <table-component :table-data="tableData"></table-component>
-        <div v-if="winner">{{winner}} 님의 승리</div>
-    </div>
+    <td @click="onClickTd">{{ cellData }}</td>
 </template>
 
 <script>
-    import TableComponent from "./TableComponent";
     import EventBus from "./EventBus";
 
     export default {
-        name: "TicTacToe",
-        components: {
-            TableComponent
+        name: "TdComponent",
+        created() {
+            console.log(this.cellData);
         },
-        data() {
-            return {
-                tableData: [
-                    ['', '', ''],
-                    ['', '', ''],
-                    ['', '', ''],
-                ],
-                turn: 'O',
-                winner: '',
-            }
+        props: {
+            cellData: String,
+            cellIndex: Number,
+            rowIndex: Number
         },
         methods: {
-            onChangeData() {
-                // this.tableData[1][0] = 'X'; 작동하지 않음
-                this.$set(this.tableData[1], 0, 'X'); // Vue.set 동일
-            },
-            onClickTd(rowIndex, cellIndex) {
+            onClickTd() {
+                if (this.cellData) return;
                 // console.log(this.$root.$data);
                 this.$set(this.tableData[rowIndex], cellIndex, this.turn);
 
@@ -57,7 +43,7 @@
                 if (win) {
                     this.winner = this.turn;
                     this.turn = 'O';
-                    this.tableData = [['', '', ''],['', '', ''],['', '', '']]
+                    this.tableData = [['', '', ''], ['', '', ''], ['', '', '']]
                 } else { // 무승부
                     let all = true; //all이 무승부라는 뜻
                     this.tableData.forEach(row => {
@@ -71,7 +57,7 @@
                     if (all) {
                         this.winner = '';
                         this.turn = 'O';
-                        this.tableData = [['', '', ''],['', '', ''],['', '', '']]
+                        this.tableData = [['', '', ''], ['', '', ''], ['', '', '']]
                     } else {
                         this.turn = this.turn === 'O' ? 'X' : 'O';
                     }
@@ -79,21 +65,11 @@
                 }
 
             }
-        },
-        created() {
-            EventBus.$on('clickTd', this.onClickTd);
+
         }
     }
 </script>
 
-<style>
-    table {
-        border-collapse: collapse;
-    }
-    td {
-        border: 1px solid black;
-        width: 40px;
-        height: 40px;
-        text-align: center;
-    }
+<style scoped>
+
 </style>
