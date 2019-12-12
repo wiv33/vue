@@ -6,13 +6,13 @@ MineSweeper
 ## INITIALIZR Project
 
 ### create directory (command prompt)
-> mkdir vue/MineSweeper
+> mkdir vue/mine-sweeper
 
-> cd vue/MineSweeper
+> cd vue/mine-sweeper
 
 > git clone https://github.com/wiv33/vue.git
 
-> git checkout MineSweeper
+> git checkout mine-sweeper
 
 > npm i
 
