@@ -32,7 +32,8 @@ export default new Vuex.Store({ // import store from './store';
     // state를 수정할 때 동기적으로 사용.
     // mutation naming 은 대문자로 짓는 것이 뷰 커뮤니티에서 규칙이다.
     mutations: {
-        [START_GAME](state) {
+        //구조분해 data = {row, cell, mine}
+        [START_GAME](state, {row, cell, mine}) {
 
         },
         [OPEN_CELL](state) {
