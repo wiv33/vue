@@ -11,6 +11,41 @@ export const QUESTION = 'QUESTION';
 export const NORMALIZE_CELL = 'NORMALIZE_CELL';
 export const INCREMENT_TIME = 'INCREMENT_TIME';
 
+export const CODE = {
+    MINE: -7,
+    NORMAL: -1,
+    QUESTION: -2,
+    FLAG: -3,
+    QUESTION_MINE: -4,
+    FLAG_MINE: -5,
+    CLICKED_MINE: -6,
+    OPENED: 0, //0 이상이면 다 opened
+}
+
+const plantMine = (row, cell, mine) => {
+    console.log(row, cell, mine);
+    const candidate = Array(row * cell).fill().map((arr, i) => i);
+    const shuffle = [];
+    while (candidate.length > row * cell - mine)
+        shuffle.push(candidate.splice(Math.floor(Math.random() * candidate.length), 1)[0]);
+
+    const data = [];
+    for (let i = 0; i < row; i++) {
+        const rowData = [];
+        data.push(rowData);
+        for (let j = 0; j < cell; j++) {
+            rowData.push(CODE.NORMAL);
+        }
+    }
+    for (let k = 0; k < shuffle.length; k++) {
+        const ver = Math.floor(shuffle[k] / cell);
+        const hor = shuffle[k] % cell;
+        data[ver][hor] = CODE.MINE;
+    }
+    console.log(data);
+    return data;
+}
+
 //가장 중요한 한 객체만 export default 를 사용한다.
 // import 할 때 이름을 마음대로 정할 수 있다.
 export default new Vuex.Store({ // import store from './store';
@@ -34,7 +69,16 @@ export default new Vuex.Store({ // import store from './store';
     mutations: {
         //구조분해 data = {row, cell, mine}
         [START_GAME](state, {row, cell, mine}) {
-
+            state.data = {
+                row, cell, mine
+            };
+            state.tableData = plantMine(row, cell, mine);
+            state.timer = 0;
+            /*
+            객체, 배열은 데이터가 바뀌어도 화면이 바뀌지 않을 수 있다.
+            state.data.row = row;
+            Vue.set(state.data, 'row', row);
+             */
         },
         [OPEN_CELL](state) {
 

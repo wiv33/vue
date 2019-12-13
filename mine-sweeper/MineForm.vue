@@ -3,6 +3,7 @@
         <input type="number" placeholder="세로" :value="row" @change="onChangeRow">
         <input type="number" placeholder="가로" :value="cell" @change="onChangeCell">
         <input type="number" placeholder="지뢰 개수" :value="mine" @change="onChangeMine">
+        <button @click="onClickBtn">시작</button>
     </div>
 </template>
 

@@ -11,18 +11,20 @@
     import { mapGetters, mapState } from 'vuex';
     import TableComponent from "./TableComponent";
     import store, { } from "./store";
+    import MineForm from "./MineForm";
 
     export default {
         store,
         name: "MineSweeper",
         components: {
-            TableComponent
+            TableComponent,
+            MineForm
         },
         data: {
 
         },
         computed: {
-            ...mapState('timer', 'result')
+            ...mapState(['timer', 'result'])
 
         },
         methods: {
