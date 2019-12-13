@@ -29,19 +29,19 @@ this repository is study note of vue.js and that note has page list of studied v
 
 ### TicTakToe
 
-* [***Source Code***](https://github.com/wiv33/vue/tree/tic-tak-toe)
+* [***Source Code***](https://github.com/wiv33/vue/tree/tic-tac-toe)
 
 ## Chap.6 :
 
 ### TicTakToeEventBus
 
-* [***Source Code***](https://github.com/wiv33/vue/tree/tic-tak-toe-event-bus)
+* [***Source Code***](https://github.com/wiv33/vue/tree/tic-tac-toe-event-bus)
 
 ## Chap.7 :
 
 ### TicTakToeVuex
 
-* [***Source Code***](https://github.com/wiv33/vue/tree/tic-tak-toe-vuex)
+* [***Source Code***](https://github.com/wiv33/vue/tree/tic-tac-toe-vuex)
 
 ## Chap.8 :
 
