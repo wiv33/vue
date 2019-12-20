@@ -10,9 +10,10 @@
 <script>
     import { mapGetters, mapState } from 'vuex';
     import TableComponent from "./TableComponent";
-    import store, { } from "./store";
+    import store, {INCREMENT_TIME} from "./store";
     import MineForm from "./MineForm";
 
+    let interval
     export default {
         store,
         name: "MineSweeper",
@@ -24,11 +25,22 @@
 
         },
         computed: {
-            ...mapState(['timer', 'result'])
+            ...mapState(['timer', 'result', "halted"])
 
         },
         methods: {
 
+        },
+        watch: {
+            halted(value, oldValue) {
+                if (!value) {
+                    interval = setInterval(() => {
+                        this.$store.commit(INCREMENT_TIME);
+                    }, 1000);
+                } else {
+                    clearInterval(interval)
+                }
+            }
         }
     }
 </script>

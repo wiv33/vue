@@ -58,6 +58,7 @@ export default new Vuex.Store({ // import store from './store';
             mine: 0,
         },
         timer: 0,
+        halted: true, //중단된
         result: ''
 
     },
@@ -74,6 +75,7 @@ export default new Vuex.Store({ // import store from './store';
             };
             state.tableData = plantMine(row, cell, mine);
             state.timer = 0;
+            state.halted = false;
             /*
             객체, 배열은 데이터가 바뀌어도 화면이 바뀌지 않을 수 있다.
             state.data.row = row;
@@ -96,7 +98,7 @@ export default new Vuex.Store({ // import store from './store';
 
         },
         [INCREMENT_TIME](state) {
-
+            state.timer++;
         },
     },
     // 비동기를 사용할 때, 또는 여러 mutation을 연달아 사용할 때
