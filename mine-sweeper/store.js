@@ -82,20 +82,32 @@ export default new Vuex.Store({ // import store from './store';
             Vue.set(state.data, 'row', row);
              */
         },
-        [OPEN_CELL](state) {
+        [OPEN_CELL](state, {row, cell}) {
+            Vue.set(state.tableData[row], cell, CODE.OPENED);
+        },
+        [CLICK_MINE](state, {row, cell}) {
 
         },
-        [CLICK_MINE](state) {
-
+        [FLAG_CELL](state, {row, cell}) {
+            if (state.tableData[row][cell] === CODE.MINE) {
+                Vue.set(state.tableData[row], cell, CODE.FLAG_MINE);
+            } else {
+                Vue.set(state.tableData[row], cell, CODE.FLAG);
+            }
         },
-        [FLAG_CELL](state) {
-
+        [QUESTION](state, {row, cell}) {
+            if (state.tableData[row][cell] === CODE.FLAG_MINE) {
+                Vue.set(state.tableData[row], cell, CODE.QUESTION_MINE);
+            } else {
+                Vue.set(state.tableData[row], cell, CODE.QUESTION);
+            }
         },
-        [QUESTION](state) {
-
-        },
-        [NORMALIZE_CELL](state) {
-
+        [NORMALIZE_CELL](state, {row, cell}) {
+            if (state.tableData[row][cell] === CODE.QUESTION_MINE) {
+                Vue.set(state.tableData[row], cell, CODE.MINE);
+            } else {
+                Vue.set(state.tableData[row], cell, CODE.NORMAL);
+            }
         },
         [INCREMENT_TIME](state) {
             state.timer++;
