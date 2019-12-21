@@ -2,8 +2,8 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const path = require('path');
 
 module.exports = {
-    mode: 'development', //production
-    devtool: 'eval', //hidden-sourceMap
+    mode: 'production', //production
+    devtool: 'hidden-sourceMap', //hidden-sourceMap
     resolve: {
         extensions: ['.js', '.vue']
     },
