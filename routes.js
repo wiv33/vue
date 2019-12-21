@@ -6,6 +6,7 @@ import RockScissorsPaper from "./rock-scissors-paper/RockScissorsPaper";
 import TicTacToe from "./tic-tak-toe/TicTacToe";
 import MineSweeper from "./mine-sweeper/MineSweeper";
 import Baseball from "./baseball/Baseball";
+import GameMatcher from "./GameMatcher";
 
 Vue.use(VueRouter);
 
@@ -18,5 +19,6 @@ export default new VueRouter({
         {path: '/rock-scissors-paper', component: RockScissorsPaper},
         {path: '/tic-tac-toe', component: TicTacToe},
         {path: '/mine-sweeper', component: MineSweeper},
+        {path: '/game/:name', component: GameMatcher}, // /game/number-baseball
     ]
 });
