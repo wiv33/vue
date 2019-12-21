@@ -17,7 +17,7 @@ this repository is study note of vue.js and that note has page list of studied v
 
 ### RockScissorsPaper
 
-* [***Source Code***](https://github.com/wiv33/vue/tree/rock-scissors-paper)
+* [***Source Code***](https://github.com/wiv33/vue/tree/rock-scissor-paper)
 
 ## Chap.4 :
 
@@ -27,19 +27,19 @@ this repository is study note of vue.js and that note has page list of studied v
 
 ## Chap.5 :
 
-### TicTakToe
+### TicTacToe
 
 * [***Source Code***](https://github.com/wiv33/vue/tree/tic-tac-toe)
 
 ## Chap.6 :
 
-### TicTakToeEventBus
+### TicTacToeEventBus
 
 * [***Source Code***](https://github.com/wiv33/vue/tree/tic-tac-toe-event-bus)
 
 ## Chap.7 :
 
-### TicTakToeVuex
+### TicTacToeVuex
 
 * [***Source Code***](https://github.com/wiv33/vue/tree/tic-tac-toe-vuex)
 
@@ -48,3 +48,11 @@ this repository is study note of vue.js and that note has page list of studied v
 ### MineSweeper
 
 * [***Source Code***](https://github.com/wiv33/vue/tree/minesweeper)
+
+## Chap.FINAL :
+
+### VueRouter
+
+#### integration from 1 to 8
+
+* [***Source Code***](https://github.com/wiv33/)
