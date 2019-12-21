@@ -20,7 +20,7 @@ export const CODE = {
     FLAG_MINE: -5,
     CLICKED_MINE: -6,
     OPENED: 0, //0 이상이면 다 opened
-}
+};
 
 const plantMine = (row, cell, mine) => {
     console.log(row, cell, mine);
@@ -59,7 +59,8 @@ export default new Vuex.Store({ // import store from './store';
         },
         timer: 0,
         halted: true, //중단된
-        result: ''
+        result: '',
+        openedCount: 0
 
     },
     // vue의 computed와 비슷
@@ -76,6 +77,8 @@ export default new Vuex.Store({ // import store from './store';
             state.tableData = plantMine(row, cell, mine);
             state.timer = 0;
             state.halted = false;
+            state.openedCount = 0;
+            state.result = '';
             /*
             객체, 배열은 데이터가 바뀌어도 화면이 바뀌지 않을 수 있다.
             state.data.row = row;
@@ -83,6 +86,7 @@ export default new Vuex.Store({ // import store from './store';
              */
         },
         [OPEN_CELL](state, {row, cell}) {
+            let openedCount = 0;
             // 1,1 => 0,0 ~ 2,2 까지
             console.log(row, cell);
             console.log(state.data.cell, state.data.row);
@@ -144,10 +148,20 @@ export default new Vuex.Store({ // import store from './store';
                         }
                     });
                 }
+                if (state.tableData[row][cell] === CODE.NORMAL) {
+                    openedCount++;
+                }
                 Vue.set(state.tableData[row], cell, counted.length);
             }
-
-            const count = checkAround(row, cell);
+            checkAround(row, cell);
+            let halted = false, result = '';
+            if (state.data.row * state.data.cell - state.data.mine === state.openedCount + openedCount) {
+                halted = true;
+                result = `${state.timer} 초만에 승리`;
+            }
+            state.openedCount += openedCount;
+            state.halted = halted;
+            state.result = result;
         },
         [CLICK_MINE](state, {row, cell}) {
             state.halted = true;
