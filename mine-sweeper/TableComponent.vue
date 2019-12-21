@@ -13,7 +13,7 @@
 
 <script>
     import {mapState} from "vuex";
-    import {CODE, FLAG_CELL, NORMALIZE_CELL, OPEN_CELL, QUESTION} from "./store";
+    import {CLICK_MINE, CODE, FLAG_CELL, NORMALIZE_CELL, OPEN_CELL, QUESTION} from "./store";
 
     export default {
         name: "TableComponent",
@@ -59,9 +59,8 @@
                         case CODE.CLICKED_MINE:
                             return "펑";
                         default:
-                            return "";
+                            return this.$store.state.tableData[row][cell] || '';
                     }
-                    ;
                 }
             }
         },
@@ -70,6 +69,14 @@
             onClickTd(row, cell) {
                 if (this.halted) {
                     return;
+                }
+                switch (this.tableData[row][cell]) {
+                    case CODE.NORMAL:
+                        return this.$store.commit(OPEN_CELL, {row, cell});
+                    case CODE.MINE:
+                        return this.$store.commit(CLICK_MINE, {row, cell});
+                    default :
+                        return;
                 }
                 this.$store.commit(OPEN_CELL, {row, cell});
             },
