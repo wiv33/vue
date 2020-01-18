@@ -27,6 +27,7 @@
         const bonusNumber = shuffle[shuffle.length - 1];
         const winNumbers = shuffle.slice(0, 6).sort((p, c) => p - c);
         let newVar = [...winNumbers, bonusNumber];
+        console.log(newVar);
         return newVar;
     }
 
